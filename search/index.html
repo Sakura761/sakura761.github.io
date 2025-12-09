@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>about | Sakura's Blog</title>
+  <title>Sakura's Blog</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="Java,C++">
   <meta name="theme-color" content="#10b981">
 
-  <link rel="canonical" href="http://example.com/about/index.html">
+  <link rel="canonical" href="http://example.com/search/index.html">
 
   
     <link rel="shortcut icon" href="/images/favicon.png">
@@ -16,20 +16,18 @@
 
   <meta name="description" content="Nothing lasts forever.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:title" content="Sakura&#39;s Blog">
+<meta property="og:url" content="http://example.com/search/index.html">
 <meta property="og:site_name" content="Sakura&#39;s Blog">
 <meta property="og:description" content="Nothing lasts forever.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-09T13:42:10.000Z">
-<meta property="article:modified_time" content="2025-12-09T13:42:10.590Z">
 <meta property="article:author" content="Sakura">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   <meta name="generator" content="Hexo 8.1.1">
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"about","url":"http://example.com/about/index.html"}
+{"@context":"https://schema.org","@type":"WebPage","url":"http://example.com/search/index.html"}
 </script>
 
   
@@ -101,7 +99,7 @@
     </a>
   
     <a
-      class="sea-menu-link active"
+      class="sea-menu-link "
       
       href="/about/"
     >
@@ -136,20 +134,52 @@
 </nav>
   </header>
   <main id="sea-main-wrapper" data-pagefind-body>
-    
-
-
-  <article class="sea-page-card-wrapper">
+    <div class="sea-page-card-wrapper">
   <h1 class="sea-page-card-title">
-    about
+    Search
   </h1>
-  <div class="sea-article-content sea-doc">
-    
-  </div>
-</article>
+  
+  <div id="pagefind-search"></div>
+</div>
 
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<link href="/css/plugins/localsearch.css" rel="stylesheet">
 
+<script src="/pagefind/pagefind-ui.js" defer></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    const pagefindSearch = document.querySelector("#pagefind-search");
+    if (!pagefindSearch) return;
+    const params = new URLSearchParams(window.location.search);
+    const search = new PagefindUI({
+      element: "#pagefind-search",
+      showSubResults: true,
+      showImages: false,
+      showEmptyFilters: false,
+      resetStyles: false,
+      processTerm: function (term) {
+        params.set("q", term);
+        history.replaceState(history.state, "", "?" + params.toString());
+        return term;
+      },
+    });
+    const query = params.get("q");
+    if (query) {
+      search.triggerSearch(query);
+    }
+    // Reset search param if search input is cleared
+    const searchInput = document.querySelector(".pagefind-ui__search-input");
+    const clearButton = document.querySelector(".pagefind-ui__search-clear");
+    searchInput?.addEventListener("input", resetSearchParam);
+    clearButton?.addEventListener("click", resetSearchParam);
 
+    function resetSearchParam(e) {
+      if (e.target?.value.trim() === "") {
+        history.replaceState(history.state, "", window.location.pathname);
+      }
+    }
+  });
+</script>
   </main>
   <footer id="sea-footer-container">
   <div class="sea-footer-row">
