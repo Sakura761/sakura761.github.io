@@ -2,34 +2,34 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>MIT6824学习 | Sakura's Blog</title>
+  <title>CMU15445lab记录 | Sakura's Blog</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="Java,C++">
   <meta name="theme-color" content="#10b981">
 
-  <link rel="canonical" href="http://example.com/2025/12/11/MIT6824%E5%AD%A6%E4%B9%A0/">
+  <link rel="canonical" href="http://example.com/2025/12/29/CMU15445lab%E8%AE%B0%E5%BD%95/">
 
   
     <link rel="shortcut icon" href="/images/favicon.png">
   
 
-  <meta name="description" content="Google MapReduce1. 核心理念与背景 背景问题：Google 内部需要处理海量的原始数据（如网页爬虫数据、日志），涉及大量的计算（如倒排索引构建、文档聚类）。虽然核心运算很简单，但为了在短时间内完成，必须将计算分布到成百上千台机器上。 核心痛点：分布式计算带来了极大复杂性，包括并行计算、数据分发、错误处理（容错）、负载均衡等。 MapReduce 的诞生：为了将“业务逻辑”与“分布">
+  <meta name="description" content="project 0 c++ primer具体的project要求的任务请到CMU官方课程网站查看这个project的的主要任务是实现一个支持插入、计数估计和合并的基本 Count-min sketch 数据结构。主要的目的是让我们熟悉现代c++(c++17)的语法。需要知道移动语义、智能指针、原子计数类等知识。 这个任务还是比较容易完成的，按照实验说明跟着完成就可以实现，需要注意的是计数可能是多线">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MIT6824学习">
-<meta property="og:url" content="http://example.com/2025/12/11/MIT6824%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:title" content="CMU15445lab记录">
+<meta property="og:url" content="http://example.com/2025/12/29/CMU15445lab%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Sakura&#39;s Blog">
-<meta property="og:description" content="Google MapReduce1. 核心理念与背景 背景问题：Google 内部需要处理海量的原始数据（如网页爬虫数据、日志），涉及大量的计算（如倒排索引构建、文档聚类）。虽然核心运算很简单，但为了在短时间内完成，必须将计算分布到成百上千台机器上。 核心痛点：分布式计算带来了极大复杂性，包括并行计算、数据分发、错误处理（容错）、负载均衡等。 MapReduce 的诞生：为了将“业务逻辑”与“分布">
+<meta property="og:description" content="project 0 c++ primer具体的project要求的任务请到CMU官方课程网站查看这个project的的主要任务是实现一个支持插入、计数估计和合并的基本 Count-min sketch 数据结构。主要的目的是让我们熟悉现代c++(c++17)的语法。需要知道移动语义、智能指针、原子计数类等知识。 这个任务还是比较容易完成的，按照实验说明跟着完成就可以实现，需要注意的是计数可能是多线">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-11T05:47:42.000Z">
-<meta property="article:modified_time" content="2025-12-11T05:48:11.773Z">
+<meta property="article:published_time" content="2025-12-29T14:46:06.000Z">
+<meta property="article:modified_time" content="2025-12-29T15:03:40.249Z">
 <meta property="article:author" content="Sakura">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   <meta name="generator" content="Hexo 8.1.1">
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/12/11/MIT6824%E5%AD%A6%E4%B9%A0/"},"headline":"MIT6824学习","description":"Google MapReduce1. 核心理念与背景 背景问题：Google 内部需要处理海量的原始数据（如网页爬虫数据、日志），涉及大量的计算（如倒排索引构建、文档聚类）。虽然核心运算很简单，但为了在短时间内完成，必须将计算分布到成百上千台机器上。 核心痛点：分布式计算带来了极大复杂性，包括并行计算、数据分发、错误处","datePublished":"2025-12-11T05:47:42.000Z","dateModified":"2025-12-11T05:48:11.773Z","author":{"@type":"Person","name":"Sakura"},"publisher":{"@type":"Organization","name":"Sakura's Blog","logo":{"@type":"ImageObject","url":"http://example.com/images/favicon.png"}}}
+{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2025/12/29/CMU15445lab%E8%AE%B0%E5%BD%95/"},"headline":"CMU15445lab记录","description":"project 0 c++ primer具体的project要求的任务请到CMU官方课程网站查看这个project的的主要任务是实现一个支持插入、计数估计和合并的基本 Count-min sketch 数据结构。主要的目的是让我们熟悉现代c++(c++17)的语法。需要知道移动语义、智能指针、原子计数类等知识。 这个任","datePublished":"2025-12-29T14:46:06.000Z","dateModified":"2025-12-29T15:03:40.249Z","author":{"@type":"Person","name":"Sakura"},"publisher":{"@type":"Organization","name":"Sakura's Blog","logo":{"@type":"ImageObject","url":"http://example.com/images/favicon.png"}}}
 </script>
 
   
@@ -138,12 +138,12 @@
   <main id="sea-main-wrapper" data-pagefind-body>
     <article class="sea-page-card-wrapper">
   <header class="sea-article-header">
-    <h1 class="sea-article-title">MIT6824学习</h1>
+    <h1 class="sea-article-title">CMU15445lab记录</h1>
     
       <div class="sea-post-meta sea-post-meta__center">
         <div class="sea-post-time">
   <svg t="1716964550804" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2621" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M805.49888 981.49888l-602.3168-0.76288c-86.59456-8.192-154.56768-81.3056-154.56768-170.01472L48.6144 291.73248c0-94.1568 76.60032-170.75712 170.7776-170.75712l586.10176 0c94.1568 0 170.73152 76.60032 170.73152 170.75712L976.22528 810.7008C976.2304 904.87296 899.63008 981.49888 805.49888 981.49888L805.49888 981.49888zM219.3664 190.57152c-55.79776 0-101.20192 45.38368-101.20192 101.18144l0 518.96832c0 55.79776 45.40416 101.20704 101.20192 101.20704l586.13248 0c55.77728 0 101.16096-45.40928 101.16096-101.20704L906.65984 291.73248c0-55.79776-45.38368-101.18656-101.16096-101.18656L219.3664 190.54592 219.3664 190.57152zM698.84416 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L745.22624 244.1216C745.22624 269.7472 724.46976 290.51904 698.84416 290.51904L698.84416 290.51904zM315.65824 290.51904c-25.60512 0-46.38208-20.77696-46.38208-46.38208l0-158.6688c0-25.6 20.77696-46.38208 46.38208-46.38208 25.6 0 46.38208 20.78208 46.38208 46.38208L362.04032 244.1216C362.04032 269.7472 341.28896 290.51904 315.65824 290.51904L315.65824 290.51904zM534.8864 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C581.26848 774.01088 560.4864 794.78784 534.8864 794.78784L534.8864 794.78784zM930.79552 452.608 121.24672 452.608c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l809.5744 0c25.6 0 46.38208 20.77696 46.38208 46.38208C977.2032 431.82592 956.42624 452.608 930.79552 452.608L930.79552 452.608zM327.92576 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208C374.30784 628.25472 353.52576 649.03168 327.92576 649.03168L327.92576 649.03168zM534.8864 649.03168l-44.27264 0c-25.6 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.77696 46.38208 46.38208S560.4864 649.03168 534.8864 649.03168L534.8864 649.03168zM741.27872 649.03168l-44.26752 0c-25.60512 0-46.38208-20.78208-46.38208-46.38208 0-25.60512 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.77696 46.38208 46.38208C787.6608 628.25472 766.90944 649.03168 741.27872 649.03168L741.27872 649.03168zM327.92576 794.78784l-44.27264 0c-25.6 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.78208-46.38208 46.38208-46.38208l44.27264 0c25.6 0 46.38208 20.78208 46.38208 46.38208C374.30784 774.01088 353.52576 794.78784 327.92576 794.78784L327.92576 794.78784zM741.27872 794.78784l-44.26752 0c-25.60512 0-46.38208-20.77696-46.38208-46.38208 0-25.6 20.77696-46.38208 46.38208-46.38208l44.26752 0c25.60512 0 46.38208 20.78208 46.38208 46.38208C787.6608 774.01088 766.90944 794.78784 741.27872 794.78784L741.27872 794.78784z" p-id="2622"></path></svg>
-  <time datetime="2025-12-11T05:47:42.000Z">2025-12-11</time>
+  <time datetime="2025-12-29T14:46:06.000Z">2025-12-29</time>
 </div>
         
         
@@ -153,106 +153,10 @@
   <div class="sea-doc">
     
     <div class="sea-article-content">
-      <h2 id="Google-MapReduce"><a href="#Google-MapReduce" class="headerlink" title="Google MapReduce"></a>Google MapReduce</h2><h3 id="1-核心理念与背景"><a href="#1-核心理念与背景" class="headerlink" title="1. 核心理念与背景"></a>1. 核心理念与背景</h3><ul>
-<li><strong>背景问题</strong>：Google 内部需要处理海量的原始数据（如网页爬虫数据、日志），涉及大量的计算（如倒排索引构建、文档聚类）。虽然核心运算很简单，但为了在短时间内完成，必须将计算分布到成百上千台机器上。</li>
-<li><strong>核心痛点</strong>：分布式计算带来了极大复杂性，包括<strong>并行计算、数据分发、错误处理（容错）、负载均衡</strong>等。</li>
-<li><strong>MapReduce 的诞生</strong>：为了将“业务逻辑”与“分布式系统的复杂性”剥离，Google 设计了 MapReduce 抽象模型。程序员只需要编写简单的 Map 和 Reduce 函数，系统自动处理所有底层的分布式细节。</li>
-</ul>
-<h3 id="2-编程模型-Programming-Model"><a href="#2-编程模型-Programming-Model" class="headerlink" title="2. 编程模型 (Programming Model)"></a>2. 编程模型 (Programming Model)</h3><p>MapReduce 基于函数式编程语言（如 Lisp）中的原语，核心由两个函数组成：</p>
-<ol>
-<li><strong>Map 函数</strong>：<ul>
-<li><strong>输入</strong>：一对 key&#x2F;value。</li>
-<li><strong>处理</strong>：产生中间 key&#x2F;value pair 的集合。</li>
-<li><strong>逻辑</strong>：<code>Map(k1, v1) -&gt; list(k2, v2)</code></li>
-</ul>
-</li>
-<li><strong>Reduce 函数</strong>：<ul>
-<li><strong>输入</strong>：中间 key (k2) 和它对应的一组 value 集合。</li>
-<li><strong>处理</strong>：合并这些 value，产生较小的一组 value（通常是 0 个或 1 个）。</li>
-<li><strong>逻辑</strong>：<code>Reduce(k2, list(v2)) -&gt; list(v2)</code></li>
-</ul>
-</li>
-</ol>
-<p><strong>经典案例：单词统计 (Word Count)</strong></p>
-<ul>
-<li><strong>Map</strong>: 读取文档，对每个词输出 <code>&lt;word, 1&gt;</code>。</li>
-<li><strong>Reduce</strong>: 将相同 word 的所有 <code>1</code> 加起来，输出 <code>&lt;word, total_count&gt;</code>。</li>
-</ul>
-<h3 id="3-系统架构与执行流程"><a href="#3-系统架构与执行流程" class="headerlink" title="3. 系统架构与执行流程"></a>3. 系统架构与执行流程</h3><p>MapReduce 运行在由普通商用 PC 组成的大型集群上，依赖 GFS（Google File System）存储数据。</p>
-<h4 id="3-1-角色分工"><a href="#3-1-角色分工" class="headerlink" title="3.1 角色分工"></a>3.1 角色分工</h4><ul>
-<li><strong>Master (1个)</strong>：管理者。负责分配任务、监控 Worker 状态、管理中间文件位置。</li>
-<li><strong>Worker (多个)</strong>：干活的。由 Master 分配执行 Map 任务或 Reduce 任务。</li>
-</ul>
-<h4 id="3-2-执行流程-Execution-Overview"><a href="#3-2-执行流程-Execution-Overview" class="headerlink" title="3.2 执行流程 (Execution Overview)"></a>3.2 执行流程 (Execution Overview)</h4><ol>
-<li><strong>输入分片 (Split)</strong>：将输入文件切分为 M 个分片（通常 16MB-64MB）。</li>
-<li><strong>任务分配</strong>：Master 将 M 个 Map 任务和 R 个 Reduce 任务分配给空闲的 Worker。</li>
-<li><strong>Map 阶段</strong>：<ul>
-<li>Map Worker 读取对应分片内容。</li>
-<li>执行 Map 函数，结果缓存在内存。</li>
-<li>定期将缓存写入本地磁盘，并根据分区函数（如 <code>hash(key) mod R</code>）切分成 R 个区域。</li>
-<li><strong>关键点</strong>：Map 输出在<strong>本地磁盘</strong>，而不是 GFS。位置信息汇报给 Master。</li>
-</ul>
-</li>
-<li><strong>Shuffle 阶段 (数据传输)</strong>：<ul>
-<li>Master 通知 Reduce Worker 数据的位置。</li>
-<li>Reduce Worker 通过 RPC 从 Map Worker 的磁盘读取数据。</li>
-<li>Reduce Worker 对读取到的数据按 key 进行<strong>排序</strong>（使得相同 key 的数据聚在一起）。</li>
-</ul>
-</li>
-<li><strong>Reduce 阶段</strong>：<ul>
-<li>Reduce Worker 遍历排序后的数据，对每个唯一 key 调用 Reduce 函数。</li>
-<li>输出结果追加到最终的输出文件中（存储在 GFS）。</li>
-</ul>
-</li>
-<li><strong>完成</strong>：所有任务完成后，Master 唤醒用户程序。</li>
-</ol>
-<h3 id="4-关键设计特性-核心竞争力"><a href="#4-关键设计特性-核心竞争力" class="headerlink" title="4. 关键设计特性 (核心竞争力)"></a>4. 关键设计特性 (核心竞争力)</h3><h4 id="4-1-容错机制-Fault-Tolerance"><a href="#4-1-容错机制-Fault-Tolerance" class="headerlink" title="4.1 容错机制 (Fault Tolerance)"></a>4.1 容错机制 (Fault Tolerance)</h4><p>由于集群规模巨大，机器故障是常态。</p>
-<ul>
-<li><strong>Worker 故障</strong>：<ul>
-<li>Master 周期性 Ping Worker，超时则标记失效。</li>
-<li><strong>Map 任务</strong>：即使已完成，如果 Worker 挂了，也需要重做（因为结果存在挂掉机器的本地磁盘上，无法访问）。</li>
-<li><strong>Reduce 任务</strong>：如果已完成，不需要重做（结果存在全局文件系统 GFS 上）。</li>
-</ul>
-</li>
-<li><strong>Master 故障</strong>：<ul>
-<li>使用 Checkpoint（检查点）机制写入磁盘。如果 Master 挂了，通常选择终止运算，由用户决定是否重试。</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-数据本地化-Locality"><a href="#4-2-数据本地化-Locality" class="headerlink" title="4.2 数据本地化 (Locality)"></a>4.2 数据本地化 (Locality)</h4><ul>
-<li><strong>带宽是稀缺资源</strong>。</li>
-<li>Master 在调度 Map 任务时，会尽量将任务分配到<strong>存储了该数据分片</strong>的机器上（或附近的机器）。</li>
-<li>结果：绝大多数 Map 读取操作是在本地磁盘进行的，极大节省了网络带宽。</li>
-</ul>
-<h4 id="4-3-备用任务-Backup-Tasks-解决“长尾效应”"><a href="#4-3-备用任务-Backup-Tasks-解决“长尾效应”" class="headerlink" title="4.3 备用任务 (Backup Tasks) - 解决“长尾效应”"></a>4.3 备用任务 (Backup Tasks) - 解决“长尾效应”</h4><ul>
-<li><strong>落伍者 (Straggler)</strong>：如果一台机器因为硬盘坏了或负载高，导致最后几个任务执行极慢，会拖累整个作业的完成时间。</li>
-<li><strong>机制</strong>：当操作接近完成时，Master 会为剩下的正在执行的任务启动<strong>备用副本</strong>。无论是主副本还是备用副本先做完，都算任务完成。</li>
-<li><strong>效果</strong>：稍微多占用一点资源，但能显著减少大型作业的总执行时间（论文提到排序任务快了 44%）。</li>
-</ul>
-<h3 id="5-实用技巧-Refinements"><a href="#5-实用技巧-Refinements" class="headerlink" title="5. 实用技巧 (Refinements)"></a>5. 实用技巧 (Refinements)</h3><ol>
-<li><strong>Partitioning (分区函数)</strong>：默认是 Hash，但用户可以自定义（例如按主机名分区，让同一主机的 URL 进同一个文件）。</li>
-<li><strong>Combiner 函数</strong>：<ul>
-<li>在 Map 端先进行一次局部的 Reduce。</li>
-<li>例如 Word Count，Map 输出 <code>&lt;the, 1&gt;</code> 几千次。通过 Combiner，先在本地合并成 <code>&lt;the, 3000&gt;</code> 再通过网络发送给 Reduce。</li>
-<li>大幅减少网络传输量。</li>
-</ul>
-</li>
-<li><strong>Skipping Bad Records</strong>：如果某条特定的记录总是导致代码 Crash，系统可以检测到并选择跳过该记录，保证整体作业能完成。</li>
-<li><strong>Local Execution</strong>：提供本地模拟执行模式，方便调试（gdb）。</li>
-<li><strong>Status Information</strong>：Master 提供 HTTP 页面，显示进度、状态、错误日志等。</li>
-</ol>
-<h3 id="6-性能与经验"><a href="#6-性能与经验" class="headerlink" title="6. 性能与经验"></a>6. 性能与经验</h3><ul>
-<li><strong>线性扩展性</strong>：机器越多，处理速度越快（在一定范围内）。</li>
-<li><strong>实际应用</strong>：Google 用 MapReduce 重写了索引系统。代码量从 3800 行 C++ 减少到 700 行，且更易于维护和容错。</li>
-<li><strong>MapReduce 的成功原因</strong>：<ol>
-<li>封装了复杂的底层细节（并行、容错、数据传输）。</li>
-<li>适用于大量不同类型的问题。</li>
-<li>能在廉价的普通机器集群上高效运行。</li>
-</ol>
-</li>
-</ul>
-<h3 id="7-总结"><a href="#7-总结" class="headerlink" title="7. 总结"></a>7. 总结</h3><p>MapReduce 不仅是一个计算模型，更是一个运行在不可靠硬件上的高可靠分布式系统架构。它通过<strong>移动计算而非移动数据</strong>（Data Locality）、<strong>自动容错</strong>（Re-execution）和<strong>备用任务</strong>（Backup Tasks）三大法宝，成功解决了大规模数据处理的难题。</p>
-
+      <h2 id="project-0-c-primer"><a href="#project-0-c-primer" class="headerlink" title="project 0 c++ primer"></a>project 0 c++ primer</h2><p>具体的project要求的任务请到<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2025/project0/">CMU官方课程网站</a>查看<br>这个project的的主要任务是实现一个支持插入、计数估计和合并的基本 Count-min sketch 数据结构。主要的目的是让我们熟悉现代c++(c++17)的语法。需要知道移动语义、智能指针、原子计数类等知识。</p>
+<p>这个任务还是比较容易完成的，按照实验说明跟着完成就可以实现，需要注意的是计数可能是多线程的，需要是线程安全的，实现线程安全用aotmic原子计数类就行了</p>
+<h2 id="project-1-Buffer-Pool-Manager"><a href="#project-1-Buffer-Pool-Manager" class="headerlink" title="project 1 Buffer Pool Manager"></a>project 1 Buffer Pool Manager</h2><p>具体的project要求的任务请到<a target="_blank" rel="noopener" href="https://15445.courses.cs.cmu.edu/fall2025/project1/">CMU官方课程网站</a>查看</p>
+<h3 id="第一个任务-Adaptive-Replacement-Cache-ARC-Replacement-Policy"><a href="#第一个任务-Adaptive-Replacement-Cache-ARC-Replacement-Policy" class="headerlink" title="第一个任务 Adaptive Replacement Cache (ARC) Replacement Policy"></a>第一个任务 Adaptive Replacement Cache (ARC) Replacement Policy</h3>
     </div>
   </div>
 
@@ -260,17 +164,10 @@
     
   <div class="sea-prev-next-wrapper">
     
-      <div class="prev">
-        <svg t="1725418977480" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4239" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="4240"></path></svg>
-        <a class="link" href="/2025/12/11/MIT6824%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C-RPC%E3%80%81Thread/">
-          MIT6824学习笔记二-RPC、Thread
-        </a>
-      </div>
-    
     
       <div class="next">
-        <a class="link" href="/2025/12/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-          我的第一篇博客
+        <a class="link" href="/2025/12/13/MIT6824%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/">
+          MIT6824学习笔记（二）
         </a>
         <svg t="1725418993065" class="sea-svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6832" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M731.733333 480l-384-341.333333c-17.066667-14.933333-44.8-14.933333-59.733333 4.266666-14.933333 17.066667-14.933333 44.8 4.266667 59.733334L640 512 292.266667 821.333333c-17.066667 14.933333-19.2 42.666667-4.266667 59.733334 8.533333 8.533333 19.2 14.933333 32 14.933333 10.666667 0 19.2-4.266667 27.733333-10.666667l384-341.333333c8.533333-8.533333 14.933333-19.2 14.933334-32s-4.266667-23.466667-14.933334-32z" p-id="6833"></path></svg>
       </div>
