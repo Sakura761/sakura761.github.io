@@ -1,5 +1,6 @@
 ---
 title: Hello World
+published: 2025-12-09
 description: ""
 tags: [Guide, Getting-Started]
 category: Hexo
