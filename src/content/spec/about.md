@@ -1,9 +1,3 @@
-# About
-
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
-
-::github{repo="saicaca/fuwari"}
-
 ## 关于我
 
 我是一名在校计算机科学专业学生，热衷于算法、系统和 Web 开发，同时对机器学习与数据分析有浓厚兴趣。平时通过阅读课程资料、参与开源项目与实践小型实验来深化理解，喜欢将学习笔记与项目总结记录在博客中，与他人交流互相促进。此站点用于整理学习笔记、项目展示与技术随笔，欢迎通过项目页面或 GitHub 与我联系。
