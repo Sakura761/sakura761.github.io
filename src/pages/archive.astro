@@ -8,6 +8,7 @@ import { getSortedPostsList, getAllTagsAndCategories } from "../utils/content-ut
 
 const sortedPostsList = await getSortedPostsList();
 const { tags, categories } = await getAllTagsAndCategories();
+---
 <MainGridLayout title={i18n(I18nKey.archive)}>
     <ArchivePanel sortedPosts={sortedPostsList} tags={tags} categories={categories} client:only="svelte"></ArchivePanel>
 </MainGridLayout>
