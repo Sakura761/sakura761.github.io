@@ -204,6 +204,30 @@ const bannerOffset =
 }
 </style>
 
+<style is:global>
+/* Improve Mermaid SVG font rendering and contrast */
+.mermaid {
+	color: inherit; /* allow theme colors to apply */
+}
+.mermaid svg {
+	width: 100%;
+	height: auto;
+	font-family: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+	font-size: 0.95rem; /* adjust for readability */
+	shape-rendering: geometricPrecision;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.mermaid svg text,
+.mermaid svg .label,
+.mermaid svg .node text,
+.mermaid svg .edgeLabel {
+	fill: currentColor !important;
+	stroke: none !important;
+}
+</style>
+
 <script>
 import 'overlayscrollbars/overlayscrollbars.css';
 import {
