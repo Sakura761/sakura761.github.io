@@ -133,21 +133,7 @@ guard 的构造会去锁 frame 的 `rwlatch_`，从而保证真正的数据访�
 
 整体结构示意（按 page 分片）：
 
-```mermaid
-flowchart LR
-  subgraph Producers[请求发起线程]
-    A[Thread A] --> S[DiskScheduler::Schedule]
-    B[Thread B] --> S
-  end
-
-  S -->|page_id % N = 0| Q0[Queue 0]
-  S -->|page_id % N = 1| Q1[Queue 1]
-  S -->|...| Qn[Queue N-1]
-
-  Q0 --> W0[Worker 0]
-  Q1 --> W1[Worker 1]
-  Qn --> Wn[Worker N-1]
-```
+![mermaid](/assets/mermaid/345376ae2aa7f0fef5e9ae946ea4aa36e13e8f0d.svg)
 
 实现取舍：
 
@@ -163,29 +149,7 @@ flowchart LR
 
 #### 8.2.1 单页加载：单 loader，多 waiter（避免重复 I/O）
 
-```mermaid
-sequenceDiagram
-  participant T1 as Thread (loader)
-  participant BPM as BufferPoolManager
-  participant DS as DiskScheduler
-  participant DM as DiskManager
-  participant T2 as Thread (waiter)
-
-  T1->>BPM: TryFetchPage(X) miss
-  BPM-->>T1: 注册 inflight[X], 预留 frame
-
-  T2->>BPM: TryFetchPage(X) miss
-  BPM-->>T2: 发现 inflight[X], 等待 cv
-
-  T1->>DS: Schedule(Read X) + 等待 future
-  DS->>DM: ReadPage(X)
-  DM-->>DS: done
-  DS-->>T1: promise=true
-
-  T1->>BPM: 安装 page_table[X]=frame, inflight[X].done=true
-  BPM-->>T2: notify_all
-  T2->>BPM: 重试 -> cache hit
-```
+![mermaid](/assets/mermaid/7e72f93401a7766cd672837116020fee80f38e37.svg)
 
 #### 8.2.2 驱逐 dirty 页：flush barrier（避免写回期间被重新读入）
 
