@@ -110,7 +110,10 @@ export async function getCategoryList(): Promise<Category[]> {
 	return ret;
 }
 
-export async function getAllTagsAndCategories(): Promise<{ tags: string[]; categories: string[] }> {
+export async function getAllTagsAndCategories(): Promise<{
+	tags: string[];
+	categories: string[];
+}> {
 	const tags = (await getTagList()).map((t) => t.name);
 	const categories = (await getCategoryList()).map((c) => c.name);
 	return { tags, categories };
