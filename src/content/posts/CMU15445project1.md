@@ -133,7 +133,21 @@ guard 的构造会去锁 frame 的 `rwlatch_`，从而保证真正的数据访�
 
 整体结构示意（按 page 分片）：
 
-![mermaid](/assets/mermaid/345376ae2aa7f0fef5e9ae946ea4aa36e13e8f0d.svg)
+```mermaid
+flowchart LR
+  subgraph Producers[请求发起线程]
+    A[Thread A] --> S[DiskScheduler::Schedule]
+    B[Thread B] --> S
+  end
+
+  S -->|page_id % N = 0| Q0[Queue 0]
+  S -->|page_id % N = 1| Q1[Queue 1]
+  S -->|...| Qn[Queue N-1]
+
+  Q0 --> W0[Worker 0]
+  Q1 --> W1[Worker 1]
+  Qn --> Wn[Worker N-1]
+```
 
 实现取舍：
 
@@ -149,12 +163,52 @@ guard 的构造会去锁 frame 的 `rwlatch_`，从而保证真正的数据访�
 
 #### 8.2.1 单页加载：单 loader，多 waiter（避免重复 I/O）
 
-![mermaid](/assets/mermaid/7e72f93401a7766cd672837116020fee80f38e37.svg)
+```mermaid
+sequenceDiagram
+  participant T1 as Thread (loader)
+  participant BPM as BufferPoolManager
+  participant DS as DiskScheduler
+  participant DM as DiskManager
+  participant T2 as Thread (waiter)
+
+  T1->>BPM: TryFetchPage(X) miss
+  BPM-->>T1: 注册 inflight[X], 预留 frame
+
+  T2->>BPM: TryFetchPage(X) miss
+  BPM-->>T2: 发现 inflight[X], 等待 cv
+
+  T1->>DS: Schedule(Read X) + 等待 future
+  DS->>DM: ReadPage(X)
+  DM-->>DS: done
+  DS-->>T1: promise=true
+
+  T1->>BPM: 安装 page_table[X]=frame, inflight[X].done=true
+  BPM-->>T2: notify_all
+  T2->>BPM: 重试 -> cache hit
+```
 
 #### 8.2.2 驱逐 dirty 页：flush barrier（避免写回期间被重新读入）
 
 当 loader 选中 victim frame 且 victim 是 dirty 页 Y 时，会先在 `inflight_loads_` 里为 Y 放一个 barrier。
 
-![mermaid](/assets/mermaid/41abf775085093ddbffa542ea6da25d2646a1831.svg)
+```mermaid
+sequenceDiagram
+  participant T1 as Loader
+  participant BPM as BufferPoolManager
+  participant DS as DiskScheduler
+  participant T3 as Other Thread
+
+  T1->>BPM: Evict dirty page Y
+  BPM-->>T1: 安装 inflight[Y] 作为 flush barrier
+
+  T1->>DS: Schedule(Write Y) + 等待 future
+
+  T3->>BPM: TryFetchPage(Y)
+  BPM-->>T3: 发现 inflight[Y], 等待写回完成
+
+  DS-->>T1: write done
+  T1->>BPM: 移除 barrier inflight[Y], notify
+  BPM-->>T3: wake, 重试加载
+```
 ## 9. 优化后的测试结果
 ![测试结果](image-1.png)
