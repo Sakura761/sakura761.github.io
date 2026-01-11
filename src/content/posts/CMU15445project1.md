@@ -155,24 +155,6 @@ guard 的构造会去锁 frame 的 `rwlatch_`，从而保证真正的数据访�
 
 当 loader 选中 victim frame 且 victim 是 dirty 页 Y 时，会先在 `inflight_loads_` 里为 Y 放一个 barrier。
 
-```mermaid
-sequenceDiagram
-  participant T1 as Loader
-  participant BPM as BufferPoolManager
-  participant DS as DiskScheduler
-  participant T3 as Other Thread
-
-  T1->>BPM: Evict dirty page Y
-  BPM-->>T1: 安装 inflight[Y] 作为 flush barrier
-
-  T1->>DS: Schedule(Write Y) + 等待 future
-
-  T3->>BPM: TryFetchPage(Y)
-  BPM-->>T3: 发现 inflight[Y], 等待写回完成
-
-  DS-->>T1: write done
-  T1->>BPM: 移除 barrier inflight[Y], notify
-  BPM-->>T3: wake, 重试加载
-```
+![mermaid](/assets/mermaid/41abf775085093ddbffa542ea6da25d2646a1831.svg)
 ## 9. 优化后的测试结果
 ![测试结果](image-1.png)
