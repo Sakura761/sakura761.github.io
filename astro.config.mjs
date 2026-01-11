@@ -23,7 +23,7 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
-import mermaid from 'remark-mermaidjs';
+import rehypeMermaidWrapper from './src/plugins/rehype-mermaid-wrapper.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: "https://sakura761.github.io/",
@@ -103,8 +103,8 @@ export default defineConfig({
 		sitemap(),
 	],
 	markdown: {
-		remarkPlugins: [mermaid],
 		remarkPlugins: [
+			// remark plugins
 			remarkMath,
 			remarkReadingTime,
 			remarkExcerpt,
@@ -114,6 +114,7 @@ export default defineConfig({
 			parseDirectiveNode,
 		],
 		rehypePlugins: [
+			rehypeMermaidWrapper,
 			rehypeKatex,
 			rehypeSlug,
 			[
