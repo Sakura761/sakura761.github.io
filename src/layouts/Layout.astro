@@ -146,17 +146,7 @@ const bannerOffset =
 		<slot name="head"></slot>
 
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
-		<script type="module">
-			import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-			
-			// 初始化 mermaid
-			mermaid.initialize({ 
-				startOnLoad: true,
-				theme: 'dark', // 或者 'default', 'forest', 'neutral'
-				// 自动检测暗色模式（Fuwari 支持暗色模式，这很有用）
-				securityLevel: 'loose',
-			});
-		</script>
+		
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize
