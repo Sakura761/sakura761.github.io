@@ -154,6 +154,7 @@ flowchart LR
 - 优点：不同 page 的 I/O 可以真正并行；同 page 的请求天然串行，省掉额外的 per-page mutex/排序逻辑。
 - 代价：workload 极端偏斜（大量请求集中在少数 page）时，热点 page 会被固定映射到某个 worker，可能形成单队列瓶颈。
 ### 8.2 BPM：`inflight_loads_` 去重 + eviction 的 flush barrier（防重复读/写-读乱序）
+在IO期间不持有`bpm_latch_`,其他线程可以读取不同`page_id`对应的`frame`,读取同一`page_id`会阻塞等待重试
 引入：
 
 - `inflight_loads_[page_id] = PageLoadState{mutex, cv, done, ok}`：
