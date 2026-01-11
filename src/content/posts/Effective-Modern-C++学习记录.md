@@ -112,8 +112,6 @@ auto* d = &cx; // d -> const int*
 
 ## 3. `auto` 声明为万能引用 (`auto&&`)
 
-这是 C++11 中最特殊也最强大的规则，常用于泛型编程中的完美转发。
-
 **规则：**
 1.  **如果是左值（Lvalue）：** `auto` 被推导为 **左值引用**（例如 `int&`）。
 2.  **如果是右值（Rvalue）：** `auto` 被推导为 **非引用类型**（例如 `int`），因此 `auto&&` 最终变成右值引用（`int&&`）。
@@ -184,7 +182,7 @@ decltype(auto) c = (x); // c -> int& (注意：(x) 是左值表达式)
 
 **示例：**
 ```cpp
-auto x = { 27 }; // x -> std::initializer_list<int>
+auto x = { 27 }; // x -> std::initializer_list<int> 
 auto y = { 27, 30 }; // y -> std::initializer_list<int>
 
 // C++17 之前的规则比较混乱，C++17 明确如下：

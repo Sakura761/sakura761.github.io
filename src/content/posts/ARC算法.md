@@ -1,6 +1,6 @@
 ---
 title: ARC算法
-published: 2025-12-30
+published: 2025-12-28
 slug: arc-algorithm
 description: ""
 tags: []
